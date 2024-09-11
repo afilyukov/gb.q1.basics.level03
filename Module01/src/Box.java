@@ -1,11 +1,12 @@
 import fruits.Fruits;
 import java.util.ArrayList;
+import java.util.List;
 
-public  class Box <T extends Fruits> {
+public  class Box <F extends Fruits> {
     private float quantity = 0;
-    private final ArrayList<T> content = new ArrayList<>();
+    private final List<F> content = new ArrayList<>();
 
-    public void add(T fruit){
+    public void add(F fruit){
         content.add(fruit);
         quantity++;
     }
@@ -22,12 +23,10 @@ public  class Box <T extends Fruits> {
         return this.getWeight() == box.getWeight();
     }
 
-    public void transferTo(Box<T> box){
-        for ( T e : this.content) {
-            box.add(e);
-        }
-        this.content.clear();
-        quantity = 0;
-        System.out.println("Пересыпали!");
+    public void transferTo(Box<F> box){
+      this.content.forEach(box::add);
+      this.content.clear();
+      quantity = 0;
+      System.out.println("Пересыпали!");
    }
 }

@@ -5,7 +5,7 @@ public class MyArray<E> {
     private E[] obj_array;
     public final int length;
 
-    public MyArray(Class clazz, int capacity) {
+    public MyArray(Class<E> clazz, int capacity) {
         try {
             obj_array = (E[]) Array.newInstance(clazz, capacity);
         }
