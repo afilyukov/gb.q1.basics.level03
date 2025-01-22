@@ -1,7 +1,6 @@
 import fruits.Apple;
 import fruits.Orange;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Module01 {
@@ -45,16 +44,25 @@ public class Module01 {
   }
 
   private static void task1(MyArray<Object> array) {
-    IntStream.range(0, array.length).mapToObj(array::get).forEachOrdered(System.out::println);
+    IntStream.range(0, array.length)
+            .mapToObj(array::get)
+            .forEachOrdered(System.out::println);
+
     doSwipe(array, 0, 2);
-    IntStream.range(0, array.length).mapToObj(array::get).forEachOrdered(System.out::println);
+
+    IntStream.range(0, array.length)
+            .mapToObj(array::get)
+            .forEachOrdered(System.out::println);
   }
 
 
   private static <E> void task2(MyArray<E> array) {
-    List<E> list = IntStream.range(0, array.length).mapToObj(array::get)
-        .collect(Collectors.toList());
+    List<E> list = IntStream.range(0, array.length)
+            .mapToObj(array::get)
+            .toList();
+
     System.out.println("Печатаем список");
+
     list.forEach(System.out::println);
   }
 

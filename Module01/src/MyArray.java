@@ -8,10 +8,9 @@ public class MyArray<E> {
     public MyArray(Class<E> clazz, int capacity) {
         try {
             obj_array = (E[]) Array.newInstance(clazz, capacity);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-            catch (Exception e){
-                System.out.println(e.getMessage());
-               }
 
         this.length = capacity;
     }
