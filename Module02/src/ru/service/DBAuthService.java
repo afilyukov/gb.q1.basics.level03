@@ -15,7 +15,7 @@ public class DBAuthService implements AuthService {
         ResultSet results;
         Connection connection = DBConnector.getConnection("jdbc:postgresql:///database?currentSchema=");
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM chat_clients");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM schema.chat_clients");
             results = preparedStatement.executeQuery();
             while (results.next()) {
                 records.add(new Record(
@@ -37,9 +37,6 @@ public class DBAuthService implements AuthService {
                 throw new RuntimeException("Cannot close connection");
             }
         }
-
-
-
     }
 
     @Override
