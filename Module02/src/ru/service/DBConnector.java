@@ -16,7 +16,7 @@ public class DBConnector {
 
     public static Connection getConnection(String connectionString) {
         try {
-            return DriverManager.getConnection(connectionString, "", "");
+            return DriverManager.getConnection(connectionString, "", "#");
         } catch (SQLException throwable) {
             throw new RuntimeException("Connection error", throwable.getCause());
         }

@@ -13,9 +13,9 @@ public class DBAuthService implements AuthService {
     public DBAuthService() throws RuntimeException {
         records = new HashSet<>();
         ResultSet results;
-        Connection connection = DBConnector.getConnection("jdbc:postgresql://5.8.51.182:15432/database?currentSchema=study_geekbrains");
+        Connection connection = DBConnector.getConnection("jdbc:postgresql:///database?currentSchema=");
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM study_geekbrains.chat_clients");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM chat_clients");
             results = preparedStatement.executeQuery();
             while (results.next()) {
                 records.add(new Record(
